@@ -1,0 +1,47 @@
+:root {
+    --primary-color: #b3c8e3;
+    --secondary-color: #367cfe;
+    --light-color: #f2f2f2;
+    --dark-color: #040001;
+
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+
+    background-color: var(--primary-color);
+}
+
+
+body::after {
+    position: absolute;
+    
+    content: '';
+    background: url('../assets/react-bg.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 700px;
+    height: 700px;
+
+    display: block;
+
+    right: 0;
+    bottom: 0;
+
+    opacity: .3;
+    z-index: -1;
+    filter: blur(5px);
+}
