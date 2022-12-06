@@ -11,8 +11,8 @@ import { Item } from './types/Item';
 
 export function App() {
   const [list, setList] = useState<Item[]>([
-    { id: 1, name: 'Estudar React', done: false },
-    { id: 2, name: 'Estudar Node', done: false },
+    { taskId: 1, taskName: 'Estudar React', taskDone: false },
+    { taskId: 2, taskName: 'Estudar Node', taskDone: true },
   ]);
 
   return (
@@ -21,7 +21,7 @@ export function App() {
         <Header />
         <Form />
 
-        { list.map((item) => <List key={item.id} name={item.name} done={item.done} /> ) }
+        { list.map((item, index) => <List key={index} item={item} /> ) }
 
       </Container>
     </>

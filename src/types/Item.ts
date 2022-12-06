@@ -1,5 +1,5 @@
 export interface Item {
-    id?: number,
-    name: string,
-    done: boolean
+    taskId?: number,
+    taskName: string,
+    taskDone: boolean
 }
