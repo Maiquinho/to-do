@@ -13,6 +13,10 @@ export const StyledForm = styled.form`
         padding: 12px 16px;
 
         font-size: 1rem;
+
+        &:focus, &:active {
+            outline: none;
+        }
     }
     label {
         display: flex;
