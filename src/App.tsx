@@ -10,10 +10,7 @@ import { Item } from './types/Item';
 
 
 export function App() {
-  const [list, setList] = useState<Item[]>([
-    { taskId: 1, taskName: 'Estudar React', taskDone: false },
-    { taskId: 2, taskName: 'Estudar Node', taskDone: true },
-  ]);
+  const [list, setList] = useState<Item[]>([]);
 
   return (
     <>
