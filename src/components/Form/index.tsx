@@ -1,20 +1,35 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import { StyledForm } from './styles';
 
 
-function handleTask(event: FormEvent){
-
-    event.preventDefault();
-
+interface FormProps {
+    onEnter: (taskName: string) => void
 }
 
-export function Form(){
-    const [taskName, setTaskName] = useState('');
+export function Form({ onEnter }: FormProps){
+    const [inputText, setinputText] = useState('');
+
+    function handleKeyUp (event: KeyboardEvent){
+        
+        // o bug está aqui provavelmente
+        if(event.code === 'Enter'){
+            // event.preventDefault();
+            onEnter(inputText);
+            // console.log(inputText);
+        }
+
+    }
 
     return(
-        <StyledForm onSubmit={handleTask}>
+        <StyledForm>
             <label>+</label>
-            <input type="text" placeholder="Nova tarefa" value={ taskName } onChange={ e => setTaskName(e.target.value) } />
+            <input 
+                type="text" 
+                placeholder="Add new task" 
+                value={inputText} 
+                onChange={e => setinputText(e.target.value)} 
+                onKeyUp={handleKeyUp}
+            />
         </StyledForm>
     );
 }
