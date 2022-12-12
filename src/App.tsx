@@ -10,7 +10,10 @@ import { Item } from './types/Item';
 
 
 export function App() {
-  const [list, setList] = useState<Item[]>([]);
+  const [list, setList] = useState<Item[]>([
+    { taskId: 1, taskName: 'Criar um To-do com React', taskDone: true },
+    { taskId: 1, taskName: 'Estudar Node.js', taskDone: false },
+  ]);
 
   function handleAddTask(task: string){
     let newList = [...list];

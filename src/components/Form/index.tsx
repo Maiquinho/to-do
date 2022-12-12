@@ -10,18 +10,16 @@ export function Form({ onEnter }: FormProps){
     const [inputText, setinputText] = useState('');
 
     function handleKeyUp (event: KeyboardEvent){
-        
-        // o bug está aqui provavelmente
-        if(event.code === 'Enter'){
-            // event.preventDefault();
+
+        if(event.key === 'Enter'){
             onEnter(inputText);
-            // console.log(inputText);
+            setinputText('');
         }
 
     }
 
     return(
-        <StyledForm>
+        <StyledForm onSubmit={e => e.preventDefault()}>
             <label>+</label>
             <input 
                 type="text" 
